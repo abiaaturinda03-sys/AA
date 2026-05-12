@@ -1,136 +1,156 @@
-/* Color Palette based on Brand Image */
+/* --- Color Palette --- */
 :root {
-    --primary-blue: #0099bc;
+    --primary-blue: #0099bc; /* Used for Header, Footer, and Buttons */
+    --brand-green: #008a3d;  /* Used for ALL Headings and Accents */
     --dark-blue: #1e3a8a;
-    --brand-green: #008a3d;
     --text-main: #374151;
     --white: #ffffff;
     --bg-light: #f9fafb;
 }
 
+/* --- Global Settings --- */
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-family: 'Arial', sans-serif;
     color: var(--text-main);
-    background-color: var(--white);
+    line-height: 1.6;
 }
 
 .container {
-    width: 1100px;
-    margin: 0px auto;
-    padding: 0 1rem;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
 }
 
-/* Navigation */
+/* --- ALL HEADINGS: GREEN --- */
+h1, h2, h3, h4, .brand-title {
+    color: var(--brand-green) !important;
+    margin-top: 0;
+}
+
+/* --- Responsive Navigation (Blue Logo) --- */
 .navbar {
     background-color: var(--white);
-    padding: 20px 50px;
+    padding: 20px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; 
     align-items: center;
     border-bottom: 2px solid #eeeeee;
 }
 
 .logo-text {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: bold;
-    color: var(--primary-blue);
+    color: var(--primary-blue); /* Logo stays Blue for brand recognition */
+    margin-bottom: 10px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    margin: 0px;
-}
-
-.nav-links li {
-    margin-left: 30px;
+    gap: 15px;
+    padding: 0;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-main);
     font-weight: bold;
-    font-size: 16px;
 }
 
-/* Hero Section */
-.hero {
+@media (min-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .logo-text { margin-bottom: 0; }
+}
+
+/* --- Hero Sections --- */
+.hero, .about-hero, .products-header, .contact-hero {
     background-color: var(--bg-light);
-    padding: 80px 0px;
+    padding: 60px 0;
     text-align: center;
 }
 
-.brand-title {
-    font-size: 48px;
-    color: var(--primary-blue);
-    margin-bottom: 10px;
+.hero h1, .about-hero h1 {
+    font-size: 32px;
 }
 
-.tagline {
-    font-size: 22px;
-    color: var(--brand-green);
-    font-weight: bold;
-    margin-bottom: 30px;
+@media (min-width: 768px) {
+    .hero h1, .about-hero h1 { font-size: 48px; }
 }
 
-.weight-badge {
-    display: inline-block;
-    background-color: var(--brand-green);
-    color: white;
-    padding: 15px 30px;
-    font-size: 40px;
-    font-weight: bold;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.cta-btn {
-    background-color: var(--primary-blue);
-    color: white;
-    padding: 15px 40px;
-    border: none;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-/* Directors Section */
-.directors-section {
-    padding: 60px 0px;
-    text-align: center;
-}
-
-.grid {
+/* --- Responsive Layout Grids --- */
+.grid, .product-grid, .mission-vision-grid, .contact-grid {
     display: flex;
-    justify-content: center;
-    gap: 40px;
+    flex-direction: column; /* Stacks on mobile */
+    gap: 20px;
     margin-top: 30px;
 }
 
-.card {
-    background: white;
-    border: 1px solid #dddddd;
-    padding: 30px;
-    width: 300px;
+.card, .product-card, .m-v-box, .director-profile {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 25px;
     border-radius: 10px;
+    background: white;
+    box-sizing: border-box;
 }
 
-.phone-link {
-    display: block;
-    margin-top: 10px;
-    color: var(--primary-blue);
-    text-decoration: none;
-    font-weight: bold;
+/* Specific styling for Mission/Vision boxes */
+.m-v-box {
+    border-left: 5px solid var(--brand-green); 
 }
 
-/* Footer */
-footer {
+@media (min-width: 768px) {
+    .grid, .product-grid, .mission-vision-grid, .contact-grid {
+        flex-direction: row; /* Side-by-side on desktop */
+        justify-content: center;
+    }
+    .m-v-box, .director-profile { flex: 1; }
+}
+
+/* --- Tables & Lists --- */
+.specifications {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.size-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+.size-table th {
     background-color: var(--primary-blue);
     color: white;
+}
+
+/* --- Footer (Blue Background) --- */
+footer {
+    background-color: var(--primary-blue);
+    color: var(--white);
     text-align: center;
-    padding: 40px 0px;
+    padding: 40px 15px;
     margin-top: 50px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* --- Primary Buttons (Blue) --- */
+.cta-btn, .submit-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
 }
